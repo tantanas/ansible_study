@@ -1,0 +1,68 @@
+// Ansible //
+
+
+# Create git repo
+# copy default ssh public key 
+# 
+# Download/Clone created git repo 
+git clone git@github.com:tantanas/ansible_study.git
+
+# configure golbal git parameters on main host
+git config --global user.name "antanas"
+git config --global user.email "tantanas@gmail.com"
+// populates ~/.gitconfig
+
+# If a change is made to any contents of pulled repo - check status
+
+git status
+
+// On branch main
+// Your branch is up to date with 'origin/main'.
+// 
+// Changes not staged for commit:
+//   (use "git add <file>..." to update what will be committed)
+//   (use "git restore <file>..." to discard changes in working directory)
+// 	modified:   README.md
+
+# List the changes made:
+git diff README.md
+
+//  diff --git a/README.md b/README.md
+//  index c487d06..d25326e 100644
+//  --- a/README.md
+//  +++ b/README.md
+//  @@ -1 +1,2 @@
+//  -# ansible_study
+//  \ No newline at end of file
+//  +# ansible_study
+//  +This is my readme file
+
+# adds above changes to buffer for upload (git status would change)
+git add README.md
+git status
+
+
+//  On branch main
+//  Your branch is up to date with 'origin/main'.
+//  
+//  Changes to be committed:
+//    (use "git restore --staged <file>..." to unstage)
+//  	modified:   README.md
+
+# execute git commit, -m supplies comment
+git commit -m "updated readme file, initial commit."
+
+//  [main 9bf872e] updated readme file, initial commit.
+//   1 file changed, 2 insertions(+), 1 deletion(-)
+
+# actually push the change to the main/master branch
+git push origin main
+
+
+//  Enumerating objects: 5, done.
+//  Counting objects: 100% (5/5), done.
+//  Writing objects: 100% (3/3), 288 bytes | 288.00 KiB/s, done.
+//  Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+//  To github.com:tantanas/ansible_study.git
+//     3511aa7..9bf872e  main -> main
+
